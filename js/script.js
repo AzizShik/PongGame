@@ -1,0 +1,58 @@
+window.addEventListener('load', () => {
+	const { body } = document;
+	const width = 500;
+	const height = 700;
+	const screenWidth = window.screen.width;
+	const canvasPosition = screenWidth / 2 - width / 2;
+	const isMobile = window.matchMedia('(max-width: 600px)');
+	const gameOverEl = document.createElement('div');
+
+	const paddleHeight = 10;
+	const paddleWidth = 50;
+	const paddleDiff = 25;
+	let paddleBottomX = 225,
+		paddleTopX = 225,
+		playerMoved = false,
+		paddleContact = false;
+
+	let ballX = 250,
+		ballY = 350;
+	const ballRadius = 5;
+
+	let speedY, speedX, trajectoryX, computerSpeed;
+
+	if (isMobile.matches) {
+		speedY = -2;
+		speedX = speedY;
+		computerSpeed = 4;
+	} else {
+		speedY = -1;
+		speedX = speedY;
+		computerSpeed = 3;
+	}
+
+  
+	let playerScore = 0;
+	let computerScore = 0;
+	const winningScore = 7;
+	let isGameOver = true;
+	let isNewGame = true;
+
+	const canvas = document.createElement('canvas');
+	canvas.id = 'canvas';
+	const context = canvas.getContext('2d');
+	body.append(canvas);
+
+	function renderCanvas() {
+		context.fillStyle = 'back';
+		context.fillRect(0, 0, width, height);
+		context.fillStyle = 'white';
+	}
+
+	function createCanvas() {
+		canvas.width = width;
+		canvas.height = height;
+		body.append(canvas);
+		renderCanvas();
+	}
+});
