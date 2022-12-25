@@ -7,7 +7,44 @@
 
 body {
 	font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  background-color: #222;
+	font-size: 16px;
+	font-weight: 400;
+	background-color: #222;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.game-over-container {
+	text-align: center;
+	color: #fff;
+	font-weight: 700;
+}
+
+.game-over-container button {
+	padding: 10px 20px;
+	font-size: 21px;
+	font-weight: 700;
+	line-height: 1.5;
+	color: #fff;
+	background: #333;
+	border: 1px solid grey;
+	border-radius: 4px;
+  cursor: pointer;
+	transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+@media (hover: hover) {
+	.game-over-container button:hover {
+		transform: scale(0.98) translate(1px, 1px);
+    border: 1px solid #000;
+	}
+}
+
+.game-over-container button:active {
+  transform: scale(0.95) translate(2px, 2px);
+  border: 1px solid #0972d4;
 }
